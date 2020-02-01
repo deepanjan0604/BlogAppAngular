@@ -7,7 +7,14 @@ body {
     height: 100vh;
   }
 
-
+  /* .loginClass {
+    margin: 0;
+    padding: 0;
+    background: url(/assets/bg.jpeg) no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+  } */
   
   .login-box {
     width: 320px;
@@ -85,4 +92,15 @@ body {
   
   .login-box a:hover {
     color: #fff;
+  }
+  .button1{
+   
+      border: none;
+      outline: none;
+      height: 40px;
+      background: #b80f22;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 20px;
+    
   }

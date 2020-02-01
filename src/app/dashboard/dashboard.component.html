@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+        <a class="navbar-brand">Food Blog</a>
+        <ul class="nav nav-pills">
+                <li><a class="nav-link" routerLink = 'about' routeLinkAction = 'active'>About</a></li>
+            <li><a class="nav-link" routerLink = 'logout' routeLinkAction = 'active'>Logout</a></li>
+            <li><a class="nav-link" routerLink = 'contact' routeLinkAction = 'active'>Contact</a></li>
+            <li><a class="nav-link" routerLink = 'contact' routeLinkAction = 'active' *ngIf="role == 'admin'">Add Items</a></li>
+
+        </ul>
+    </nav>

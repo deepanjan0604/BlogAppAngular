@@ -1,15 +1,39 @@
-<div class="login-box"><div class="loginClass">
+<div class="login-box" *ngIf="displayForm"><div class="loginClass" >
     <img src="assets/logo.png" class="avatar" alt="Avatar Image">
     <h1>Login Here</h1>
-    <form>
-      <!-- USERNAME INPUT -->
+ 
+
+    <form #form="ngForm" (ngSubmit)="validateLogin(form.value)" > 
+        <fieldset ngModelGroup="user">
+    <label for="username">* UserName:</label>
+    <input type="text" name="userName" [(ngModel)]="username" #userName="ngModel" required>
+    <div *ngIf="userName.touched && userName.invalid"><label class="text-danger">User Name is required</label></div>
+   <!--  <div [hidden]="!form.submitted && !userName.invalid">User Name is required</div> -->
+                        <!-- <div *ngIf="userName.errors.required">User Name is required</div> -->
+    <br><br>
+    <label for="password">* Password:</label>
+    <input type="password" name="password" [(ngModel)]="password" #Password="ngModel" required>
+    <div *ngIf="Password.touched && Password.invalid" ><label class="text-danger">Password is required</label></div>
+
+    <br><br>
+    </fieldset>
+    <button type="submit" class="button1" [disabled]="!form.form.valid" style="margin-left: 100px;
+    margin-top: 18px;"> Submit</button>
+    
+    </form>
+
+    </div>
+  </div>
+<app-dashboard *ngIf="display"></app-dashboard>
+
+<!--   <form>
+     
       <label for="username">Username</label>
       <input type="text" placeholder="Enter Username">
-      <!-- PASSWORD INPUT -->
+      
       <label for="password">Password</label>
       <input type="password" placeholder="Enter Password">
       <input type="submit" value="Log In">
 
     </form>
-    </div>
-  </div>
+ --> 

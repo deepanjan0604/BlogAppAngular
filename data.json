@@ -5,21 +5,24 @@
         "first_name": "Admin",
         "last_name": "User",
         "email": "admin@blog.com",
-        "password":"AdminUser"
+        "password":"AdminUser",
+        "role":"admin"
       },
       {
         "id": 2,
         "first_name": "Deepanjan",
         "last_name": "M",
-        "email": "deep.m@blog.com",
-        "password":"DeepanjanM"
+        "email": "deepanjan.m@blog.com",
+        "password":"DeepanjanM",
+        "role":"user"
       },
       {
         "id": 3,
         "first_name": "Neeraj",
         "last_name": "K",
         "email": "neeraj.k@blog.com",
-        "password":"NeerajK"
+        "password":"NeerajK",
+        "role":"user"
       }
     ]
   }

@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BlogAppAngular';
+  role:string;
+  constructor() { 
+    this.role = localStorage.getItem('role');
+    debugger;
+
+  }
+  ngOnInit() {
+  }
+  recieveFromChild: any;
+  getMessage(role:any){
+  this.recieveFromChild=role;
+  console.log(role);
+  }
+
 }
