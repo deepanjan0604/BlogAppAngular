@@ -1,0 +1,25 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "first_name": "Admin",
+        "last_name": "User",
+        "email": "admin@blog.com",
+        "password":"AdminUser"
+      },
+      {
+        "id": 2,
+        "first_name": "Deepanjan",
+        "last_name": "M",
+        "email": "deep.m@blog.com",
+        "password":"DeepanjanM"
+      },
+      {
+        "id": 3,
+        "first_name": "Neeraj",
+        "last_name": "K",
+        "email": "neeraj.k@blog.com",
+        "password":"NeerajK"
+      }
+    ]
+  }
