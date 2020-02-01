@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private _userDetailsService:FetchUserDetailsService, private router:Router) { 
     debugger;
     this.userDetails=this._userDetailsService.getDetails();
+    localStorage.setItem('role',null);
   }
 
 
@@ -24,10 +25,13 @@ export class LoginComponent implements OnInit {
   username='';
   password='';
   role:string;
-  ngOnInit() {
-  }
   displayForm=true;
   display=false;
+  ngOnInit() {
+    this.displayForm=true;
+  this.display=false;
+  }
+  
  
   validateLogin(value:any){
     debugger;

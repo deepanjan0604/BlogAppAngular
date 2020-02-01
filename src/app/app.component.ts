@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'BlogAppAngular';
   role:string;
-  constructor() { 
+  constructor(private router:Router) { 
     this.role = localStorage.getItem('role');
-    debugger;
+    if(this.role != null){
+      this.router.navigate(['./dashboard']);
 
+
+    }
+    else{
+      this.router.navigate(['./about']);
+    }
+    debugger;
   }
   ngOnInit() {
   }

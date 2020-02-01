@@ -1,10 +1,30 @@
-<nav class="navbar navbar-expand navbar-light bg-light">
-        <a class="navbar-brand">Food Blog</a>
+<nav class="navbar navbar-expand navbar-light bg-light" style="    float: right;
+">
         <ul class="nav nav-pills">
-                <li><a class="nav-link" routerLink = 'about' routeLinkAction = 'active'>About</a></li>
-            <li><a class="nav-link" routerLink = 'logout' routeLinkAction = 'active'>Logout</a></li>
-            <li><a class="nav-link" routerLink = 'contact' routeLinkAction = 'active'>Contact</a></li>
-            <li><a class="nav-link" routerLink = 'contact' routeLinkAction = 'active' *ngIf="role == 'admin'">Add Items</a></li>
+      
+            <li><a class="nav-link" routerLink = 'add' routeLinkAction = 'active' *ngIf="role == 'admin'" >Add Items</a></li>
+            <li><a class="nav-link" routerLink = 'notification' routeLinkAction = 'active' *ngIf="role == 'admin' || role =='user'">Notifications</a></li>
+            <li><a class="nav-link" routerLink = 'logout' routeLinkAction = 'active' *ngIf="role == 'admin' || role =='user'">Logout</a></li>
+
 
         </ul>
     </nav>
+
+
+    <div class="card" *ngIf="addItems">
+            <img src="" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>Jane Doe</b></h4> 
+              <p>Interior Designer</p> 
+            </div>
+            <button type="submit">Add Item</button>
+          </div>
+
+          <div class="card" *ngIf="showItems">
+                <img src="" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Jane Doe</b></h4> 
+                  <p>Interior Designer</p> 
+                </div>
+                <button type="submit">Add Item</button>
+              </div>
