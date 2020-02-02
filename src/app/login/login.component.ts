@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
     if(flag== false){
       alert("Wrong User Details");
     }else{
+      this.router.navigate(['./home']);
       this.router.navigate(['./dashboard']);
     }
     
