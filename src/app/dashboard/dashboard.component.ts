@@ -32,7 +32,7 @@ comments=new Array();
         for(var i=0;i<data.length;i++)
         this.restData[i]=data[i];
       }); 
-     // this.restData=_blogData.restData;
+    this.restData=_blogData.restData;
       debugger;
     }
     else{
