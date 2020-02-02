@@ -11,13 +11,11 @@ export class AppComponent {
   role:string;
   constructor(private router:Router) { 
     this.role = localStorage.getItem('role');
-    if(this.role != null){
+    if(this.role != "null"){
       this.router.navigate(['./dashboard']);
-
-
     }
     else{
-      this.router.navigate(['./about']);
+      this.router.navigate(['./login']);
     }
     debugger;
   }

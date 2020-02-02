@@ -2,9 +2,9 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
         <a class="navbar-brand" routerLink = 'home' routeLinkAction = 'active'>Food Blog</a>
         <ul class="nav nav-pills">
-                <li><a class="nav-link" routerLink = 'about' routeLinkAction = 'active'>About</a></li>
+                <li><a class="nav-link" routerLink = 'about' routeLinkAction = 'active' >About</a></li>
             <li><a class="nav-link" routerLink = 'contact' routeLinkAction = 'active' >Contact</a></li>
-            <li><a class="nav-link" routerLink = 'login' routeLinkAction = 'active' >Login</a></li>
+            <li><a class="nav-link" routerLink = 'login' routeLinkAction = 'active' *ngIf="role == 'null'">Login</a></li>
            <!--  <li><a class="nav-link" routerLink = 'contact' routeLinkAction = 'active' *ngIf="role == 'admin'">Add Items</a></li>
             <li><a class="nav-link" routerLink = 'logout' routeLinkAction = 'active' *ngIf="role == 'admin' || role =='user'">Logout</a></li>
 

@@ -9,10 +9,12 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  /* {path:'',pathMatch:'full',redirectTo:'/index'}, */
+  // {path:'',pathMatch:'full',redirectTo:'login'},
   {path:'',component:LoginComponent},
   {path:'home',component:AppComponent},
   {path:'dashboard',component:DashboardComponent},
+  {path:'dashboard/notification',component:DashboardComponent},
+  {path:'dashboard/add',component:DashboardComponent},
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
   {path:'dashboard/logout',component:LogoutComponent},
