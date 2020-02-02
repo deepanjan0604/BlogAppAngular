@@ -9,8 +9,10 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'BlogAppAngular';
   role:string;
+  name:string;
   constructor(private router:Router) { 
     this.role = localStorage.getItem('role');
+    this.name= localStorage.getItem('name');
     if(this.role != "null"){
       this.router.navigate(['./dashboard']);
     }
