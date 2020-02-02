@@ -16,6 +16,8 @@ const routes: Routes = [
   {path:'dashboard/notification',component:DashboardComponent},
   {path:'dashboard/add',component:DashboardComponent},
   {path:'about',component:AboutComponent},
+  {path:'dashboard/about',component:AboutComponent},
+  {path:'dashboard/contact',component:ContactComponent},
   {path:'contact',component:ContactComponent},
   {path:'dashboard/logout',component:LogoutComponent},
   {path:'dashboard/add',component:DashboardComponent},

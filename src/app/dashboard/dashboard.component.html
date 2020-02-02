@@ -1,35 +1,26 @@
 <nav class="navbar navbar-expand navbar-light bg-light" style="    float: right;
 ">
         <ul class="nav nav-pills">
-      
+            <li><a class="nav-link" routerLink = 'about' routeLinkAction = 'active' *ngIf="role == 'admin' || role =='user'">About</a></li>
+
+            <li><a class="nav-link" routerLink = 'contact' routeLinkAction = 'active' *ngIf="role == 'admin' || role =='user'">Contact</a></li>
+
            <!--  <li><a class="nav-link" routerLink = 'add' routeLinkAction = 'active' *ngIf="role == 'admin'" >Add Items</a></li>
             <li><a class="nav-link" routerLink = 'notification' routeLinkAction = 'active' *ngIf="role == 'admin' || role =='user'">Notifications</a></li>
             --> <li><a class="nav-link" (click)="addItem1()"  *ngIf="role == 'admin'" style="color:#007bff">Add Items</a></li>
            <!--  <li><a class="nav-link"  (click)="showNotifications()" *ngIf="role == 'admin' || role =='user'" style="color:#007bff">Notifications</a></li> -->
-                
-           
             <li><a class="nav-link" routerLink = 'logout' routeLinkAction = 'active' *ngIf="role == 'admin' || role =='user'">Logout</a></li>
-
-
         </ul>
     </nav>
-
-  
-<!--     <div class="card" *ngIf="addItems == true">
-            <img src="" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Jane Doe</b></h4> 
-              <p>Interior Designer</p> 
-            </div>
-            <button type="submit">Add Item</button>
-          </div> -->
-          <div class="container" style="margin-top: 100px;">
+    <div class="col-md-12 row" >
+        <div class="col-md-9" style="margin-top: -104px;">
+          <div class="container" style="margin-top: 100px;margin-left: 5px;" *ngIf="showItem">
                
                 <div class="col-md-12">
                         <div class="row">  
                         <div class="col-md-6" *ngFor="let p of restData; let i=index;">
           <div class="card" *ngIf="showItem">
-                <img src="{{p.img}}" alt="Avatar" style="width:100%">
+                <img src="{{p.img}}"  alt="Avatar" style="width:100%">
                 <div class="container">
                   <h4><b>{{p.name}}</b></h4> 
                   <h5>Posted By:{{p.addedBy}}</h5> 
@@ -40,24 +31,67 @@
                 <div class="col-md-12">
                     <div class="row"> 
                     <div class="col-md-0">
-                    <button type="submit" class="btn btn-primary"  *ngIf="role == 'admin'">Edit Item</button>
+                    <button type="submit" class="btn btn-primary"  *ngIf="role == 'admin'" (click)="editItem(i)">Edit Item</button>
                     </div>
                     <div class="col-md-8">
-                        <button type="submit" class="btn btn-success"  *ngIf="role == 'admin' || role =='user'">Comments</button>
+                        <button type="submit" class="btn btn-success"  *ngIf="role == 'admin' || role =='user'" (click)="showComments(i)">Comments</button>
                     </div>
                 </div>
                 </div>
               </div>
               </div>
-        
+        </div>
+
+
+
+      
+
+
+        </div>
+
            
               </div>
+
+
               </div>
+
+
+
+        <!--Comments Section-->
+
+       <div class="col-md-3"  >
+            <div class="card" *ngIf="commentsSection">
+                <h4><b>Comments</b></h4> 
+                  <div class="container" *ngFor="let c of comments">
+                    <h4>{{c.description}}</h4> 
+                    <h6>Commented By:{{c.commentedBy}}</h6> 
+                    <h6>{{c.time}}</h6> 
+                  </div>
+                  <div class="col-md-12">
+                      <div class="row"> 
+                    
+                      <div class="col-md-8">
+                        <input type="text" name="comment" [(ngModel)]="comment" >
+                          <button type="submit" class="btn btn-success"  *ngIf="role == 'admin' || role =='user'" (click)="addComment($event)" >Post</button>
+                          <button type="submit" class="btn btn-danger"  *ngIf="role == 'admin' || role =='user'" (click)="goDashboard()" >Close</button>
+                     
+                        </div>
+                  </div>
+                  </div>
+                </div>
+                </div> 
+
+
+
+
+
+
+
               </div>
 
               <div class="container" *ngIf="addItems">
                  
-                  <form #form="ngForm" (ngSubmit)="addItem(form.value)" > 
+                  <form #form="ngForm" id="addForm" (ngSubmit)="addItem(form.value)" > 
                       <fieldset ngModelGroup="data">
                   <label>Name:</label>
                   <input type="text" name="name" [(ngModel)]="name" #Name="ngModel" required>
@@ -72,7 +106,33 @@
                        
 
                   </fieldset>
-                  <button type="submit" [disabled]="!form.form.valid">Submit</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="!form.form.valid">Submit</button>
+                  <button type="button" class="btn btn-danger" (click)="goDashboard()" >Back</button>
+
                   
                   </form>
+                </div>
+
+
+                <div class="container" *ngIf="editItems">
+
+                <form [formGroup]="groupingForm1" (ngSubmit)="editValues()"  >
+                    <label>
+                        Name: </label>
+                        <input type="text" formControlName="name">
+                   
+                    <label>
+                        Description: </label>
+                        <textarea formControlName="description"></textarea>
+                    
+                    <label>
+                            Image Url: </label>
+                            <input type="text" formControlName="img">
+                     
+            
+                    <button type="submit" class="btn btn-primary" [disabled]="!groupingForm1.valid">Update</button>
+                    <button type="button" class="btn btn-danger" (click)="goDashboard()" >Back</button>
+                
+                </form>
+            
                 </div>

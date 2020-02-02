@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
     debugger;
     this.userDetails=this._userDetailsService.getDetails();
     localStorage.setItem('role',null);
+    localStorage.setItem('name', null);
+
   }
 
 
@@ -45,6 +47,7 @@ export class LoginComponent implements OnInit {
       this.display=true;
       flag= true;
       localStorage.setItem('role', this.userDetails.users[i].role);
+      localStorage.setItem('name', this.userDetails.users[i].first_name);
       break;
       
 
