@@ -8,5 +8,5 @@ RUN npm run build
 
 
 FROM nginx:latest
-COPY --from=build /usr/local/app/dist/BlogAngularApp /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/blogangularapp /usr/share/nginx/html
 EXPOSE 80
