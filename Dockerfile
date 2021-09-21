@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:latest as build
 WORKDIR /usr/local/app
 COPY ./ /usr/local/app
 COPY package.json /usr/local/app
@@ -7,6 +7,6 @@ COPY . /usr/local/app
 RUN npm run build
 
 
-FROM nginx:latest
-COPY --from=build /usr/local/app/dist/blogangularapp /usr/share/nginx/html
+FROM nginx:alpine
+COPY --from=build /usr/local/app/dist/BlogAppAngular /usr/share/nginx/html
 EXPOSE 80
