@@ -27,7 +27,7 @@ comments=new Array();
     this.role = localStorage.getItem('role');
     if(this.role != 'null'){
       this.router.navigate(['./dashboard']);
-       _blogData.getJSON().subscribe((data: {}) => {
+       _blogData.getJSON().subscribe((data: []) => {
         console.log(data);
         for(var i=0;i<data.length;i++)
         this.restData[i]=data[i];
